@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo "Interactive login is disabled for git user."
+
+exit 1
