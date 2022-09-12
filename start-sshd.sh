@@ -5,7 +5,7 @@
 : "${SSHD_HOST_KEY_COMMENT:=""}"
 
 for algo in $SSHD_HOST_KEY_ALGOS; do
-	host_key_file="/etc/ssh/ssh_host_${algo}_key"
+	host_key_file="${SSHD_CONFIG_DIR}/ssh_host_${algo}_key"
 
 	[ -f "$host_key_file" ] || {
 		echo "Generating host key: $host_key_file"
@@ -14,4 +14,4 @@ for algo in $SSHD_HOST_KEY_ALGOS; do
 	}
 done
 
-/usr/sbin/sshd -D ${SSHD_DEBUG:+"-e"}
+/usr/sbin/sshd -D -e ${SSHD_OPTS}
