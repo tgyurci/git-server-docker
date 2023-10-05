@@ -25,6 +25,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3
         with:
+          context: git-server
           push: true
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          tags: tgyurci/git-server:latest, tgyurci/git-server:2022021201
+          tags: tgyurci/git-server:latest
